@@ -1,0 +1,51 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+<input type="text" @bind="@name"/>
+
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<button class="btn btn-primary" @onclick="DecrementCount">Decrement</button>
+
+<button class="btn btn-secondary" @onclick="addUser">Add User</button>
+   
+
+<ul>
+@foreach(var item in Users)
+{
+    <li> @item </li>
+}
+</ul>
+
+@code {
+    private int currentCount = 0;
+
+    private string name;
+    List<string> Users = new List<string>();
+    private void addUser()
+    {
+       
+        Users.Add(name);
+        Console.WriteLine(Users);
+    }
+
+   
+
+    private void DecrementCount()
+    {
+        if(currentCount > 0)
+        {
+            currentCount--;
+        }
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
