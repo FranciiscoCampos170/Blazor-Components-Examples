@@ -1,1 +1,1 @@
-BlazorApp1
+Blazor Components Examples
