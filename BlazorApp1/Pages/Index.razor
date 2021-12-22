@@ -6,4 +6,14 @@
 
 Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<Alert Show="@ShowAlert">
+    <span class="oi oi-check mr-2" aria-hidden="true"></span>
+    <strong>Blazor is soo cool!</strong>
+</Alert>
+
+<button @onclick="@ToggleAlert" class="btn btn-primary">Toggle Alert</button>
+
+@code {
+public bool ShowAlert { get; set; } = true;
+public void ToggleAlert() => ShowAlert = !ShowAlert;
+}
